@@ -7,14 +7,10 @@ import Keyboard from "./components/Keyboard";
 import Word from "./components/Word";
 import Hangman from "./components/Hangman";
 import Button from "@material-ui/core/Button";
+import * as ConstCollection from "./constants/file";
 import "./App.css";
 
-const words = [
-  ["C", "A", "R"],
-  ["B", "O", "O", "K"],
-  ["C", "A", "N", "D", "L", "E"],
-  ["L", "E", "T", "T", "E", "R"]
-];
+const words = ConstCollection.WORD_LIBRARY
 
 const INITIAL_STATE = {
   guesses: [],
@@ -80,7 +76,7 @@ export default class App extends Component {
       <div>
         <MuiThemeProvider>
           <div>
-            <AppBar title="Hangman Game" />
+            <AppBar title="Simple React JS Hangman Game" showMenuIconButton={false} />
 
             <Card className="CardBorder">
               <Typography variant="h2" gutterBottom>
