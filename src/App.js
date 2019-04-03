@@ -24,25 +24,17 @@ export default class App extends Component {
   state = { ...INITIAL_STATE };
 
   componentWillMount = () => {
-    var randomIndex = this.getRandomWordIndex();
-    this.setState({
-      remainingLetters: [...words[randomIndex]],
-      letters: [...words[randomIndex]]
-    });
+    this.handleReset();
   };
 
   handleReset = () => {
-    var randomIndex = this.getRandomWordIndex();
+    var randomIndex = Math.floor(Math.random() * words.length);
     this.setState({
       ...INITIAL_STATE,
       guesses: [],
       remainingLetters: [...words[randomIndex]],
       letters: [...words[randomIndex]]
     });
-  };
-
-  getRandomWordIndex = () => {
-    return Math.floor(Math.random() * words.length);
   };
 
   handleKeyPress = letter => {
@@ -77,11 +69,11 @@ export default class App extends Component {
         <MuiThemeProvider>
           <div>
             <AppBar title="Simple React JS Hangman Game" showMenuIconButton={false} />
-
             <Card className="CardBorder">
               <Typography variant="h2" gutterBottom>
                 The Hangman Game
               </Typography>
+
               <Hangman lifes={this.state.lifes} />
 
               {!this.state.gameOver && (

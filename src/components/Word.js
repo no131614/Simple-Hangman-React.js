@@ -5,7 +5,7 @@ const Word = props => (
     style={{
       display: "flex",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
     }}
   >
     {props.letters.map((letter, i) => (
@@ -13,7 +13,7 @@ const Word = props => (
         key={i}
         style={{
           margin: "5px",
-          size: "40px"
+          size: "40px",
         }}
       >
         <span
